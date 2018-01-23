@@ -4,7 +4,7 @@ function Item(name, sell_in, quality) {
   this.quality = quality;
 }
 
-var items = []
+var items = [];
 
 items.push(new Item('+5 Dexterity Vest', 10, 20));
 items.push(new Item('Aged Brie', 2, 0));
@@ -32,7 +32,7 @@ function update_quality() {
       }
     } else {
       if (current_item.quality < 50) {
-        current_item.quality = current_item.quality + 1
+        upgrade_item_quality(current_item);
         if (current_item.name == 'Backstage passes to a TAFKAL80ETC concert') {
           if (current_item.sell_in < 11) {
             upgrade_item_quality(current_item, 1);
