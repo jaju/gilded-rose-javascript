@@ -14,6 +14,12 @@ describe("Gilded Rose", function() {
       expect(item.quality).to.equal(9);
     });
     
+    it("should NOT devalue an item's quality when quality is 0", function() {
+      var item = new Item("Some item", 10, 0);
+      gilded_rose.downgrade_item_quality(item, 1);
+      expect(item.quality).to.equal(0);
+    });
+    
     it("should increase an item's quality by given value", function() {
       var item = new Item("Some item", 10, 10);
       gilded_rose.upgrade_item_quality(item, 10);
@@ -25,7 +31,6 @@ describe("Gilded Rose", function() {
       gilded_rose.upgrade_item_quality(item, 10);
       expect(item.quality).to.equal(50);
     });
-  
   
   });
   
