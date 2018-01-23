@@ -60,3 +60,5 @@ function update_quality() {
     }
   }
 }
+
+module.exports.update_quality = update_quality;

@@ -1,0 +1,23 @@
+{
+  "name": "gilded-rose-javascript",
+  "version": "1.0.0",
+  "description": "The Gilded Rose Kata for Javascript",
+  "main": "src/gilded_rose.js",
+  "scripts": {
+    "test": "mocha --reporter spec spec/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaju/gilded-rose-javascript.git"
+  },
+  "author": "Ravindra R. Jaju <ravindra.jaju@gmail.com> (https://msync.org/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaju/gilded-rose-javascript/issues"
+  },
+  "homepage": "https://github.com/jaju/gilded-rose-javascript#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.0.0"
+  }
+}
