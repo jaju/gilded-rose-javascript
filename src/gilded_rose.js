@@ -43,9 +43,11 @@ function update_quality() {
         }
       }
     }
+    
     if (current_item.name != 'Sulfuras, Hand of Ragnaros') {
       current_item.sell_in = current_item.sell_in - 1;
     }
+    
     if (current_item.sell_in < 0) {
       if (current_item.name != 'Aged Brie') {
         if (current_item.name != 'Backstage passes to a TAFKAL80ETC concert') {
@@ -63,6 +65,7 @@ function update_quality() {
 }
 
 module.exports.Item = Item;
+module.exports.items = items;
 module.exports.downgrade_item_quality = downgrade_item_quality;
 module.exports.upgrade_item_quality = upgrade_item_quality;
 module.exports.update_quality = update_quality;

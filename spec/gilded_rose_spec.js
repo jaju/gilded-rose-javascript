@@ -3,7 +3,23 @@ var chai = require('chai');
 var expect = chai.expect;
 var gilded_rose = require('../src/gilded_rose');
 var Item = gilded_rose.Item;
+var items = gilded_rose.items;
 var update_quality = gilded_rose.update_quality;
+
+describe("Gilded Rose Characterization (Pindown) tests", function(){
+  it("Start with 6 items initially", function(){
+    assert(items.length,6);
+  });
+  it("After 1 day, Vest quality goes down by 1", function(){
+    var vest = items[0];
+    assert.equal(vest.name, "+5 Dexterity Vest");
+    assert.equal(vest.quality, 20);
+    gilded_rose.update_quality();
+    assert.equal(vest.quality, 19);
+    gilded_rose.update_quality();
+    assert.equal(vest.quality, 18);
+  });
+});
 
 describe("Gilded Rose", function() {
 
