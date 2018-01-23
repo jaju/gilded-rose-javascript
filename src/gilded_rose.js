@@ -18,7 +18,8 @@ function downgrade_item_quality(item, value) {
 }
 
 function upgrade_item_quality(item, value) {
-  item.quality = item.quality + value;
+  if (item.quality < 50)
+    item.quality = item.quality + value;
 }
 
 function update_quality() {
@@ -35,14 +36,10 @@ function update_quality() {
         current_item.quality = current_item.quality + 1
         if (current_item.name == 'Backstage passes to a TAFKAL80ETC concert') {
           if (current_item.sell_in < 11) {
-            if (current_item.quality < 50) {
-              upgrade_item_quality(current_item, 1);
-            }
+            upgrade_item_quality(current_item, 1);
           }
           if (current_item.sell_in < 6) {
-            if (current_item.quality < 50) {
-              upgrade_item_quality(current_item, 1);
-            }
+            upgrade_item_quality(current_item, 1);
           }
         }
       }
@@ -62,9 +59,7 @@ function update_quality() {
           current_item.quality = current_item.quality - current_item.quality
         }
       } else {
-        if (current_item.quality < 50) {
-          upgrade_item_quality(current_item, 1);
-        }
+        upgrade_item_quality(current_item, 1);
       }
     }
   }
