@@ -32,7 +32,7 @@ function update_quality() {
       }
     } else {
       if (current_item.quality < 50) {
-        upgrade_item_quality(current_item);
+        upgrade_item_quality(current_item, 1);
         if (current_item.name == 'Backstage passes to a TAFKAL80ETC concert') {
           if (current_item.sell_in < 11) {
             upgrade_item_quality(current_item, 1);

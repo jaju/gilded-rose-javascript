@@ -6,11 +6,12 @@ var Item = gilded_rose.Item;
 var items = gilded_rose.items;
 var update_quality = gilded_rose.update_quality;
 
-describe("Gilded Rose Characterization (Pindown) tests", function(){
-  it("Start with 6 items initially", function(){
-    assert(items.length,6);
+describe("Gilded Rose Characterization (Pindown) tests", function () {
+  it("Start with 6 items initially", function () {
+    assert(items.length, 6);
   });
-  it("After 1 day, Vest quality goes down by 1", function(){
+  
+  it("After 1 day, Vest quality goes down by 1", function () {
     var vest = items[0];
     assert.equal(vest.name, "+5 Dexterity Vest");
     assert.equal(vest.quality, 20);
@@ -19,35 +20,43 @@ describe("Gilded Rose Characterization (Pindown) tests", function(){
     gilded_rose.update_quality();
     assert.equal(vest.quality, 18);
   });
+  
+  it("increases quality of Aged Brie", function() {
+    var agedBrie = items[1];
+    assert.equal(agedBrie.name, "Aged Brie");
+    var quality = agedBrie.quality;
+    gilded_rose.update_quality();
+    expect(agedBrie.quality).to.be.greaterThan(quality);
+  })
 });
 
-describe("Gilded Rose", function() {
-
-  describe("Item", function() {
-    it("should devalue an item's quality by given value", function() {
+describe("Gilded Rose", function () {
+  
+  describe("Item", function () {
+    it("should devalue an item's quality by given value", function () {
       var item = new Item("Some item", 10, 10);
       gilded_rose.downgrade_item_quality(item, 1);
       expect(item.quality).to.equal(9);
     });
     
-    it("should NOT devalue an item's quality when quality is 0", function() {
+    it("should NOT devalue an item's quality when quality is 0", function () {
       var item = new Item("Some item", 10, 0);
       gilded_rose.downgrade_item_quality(item, 1);
       expect(item.quality).to.equal(0);
     });
     
-    it("should increase an item's quality by given value", function() {
+    it("should increase an item's quality by given value", function () {
       var item = new Item("Some item", 10, 10);
       gilded_rose.upgrade_item_quality(item, 10);
       expect(item.quality).to.equal(20);
     });
-  
-    it("should NOT increase an item's quality if quality is over 50", function() {
+    
+    it("should NOT increase an item's quality if quality is over 50", function () {
       var item = new Item("Some item", 10, 50);
       gilded_rose.upgrade_item_quality(item, 10);
       expect(item.quality).to.equal(50);
     });
-  
+    
   });
   
 });
